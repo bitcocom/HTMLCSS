@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+   <div class="container">
+     <button class="btn btn-primary" onclick="doSave();">Save</button>  
+     <div>
+       <label class="form-check-label form-check-inline"><input type="checkbox" name="chk_lang" value="html"/>HTML</label>
+       <label class="form-check-label form-check-inline"><input type="checkbox" name="chk_lang" value="js"/>JavcScript</label>
+       <label class="form-check-label form-check-inline"><input type="checkbox" name="chk_lang" value="vue"/>Vue.js</label>
+       <label class="form-check-label form-check-inline"><input type="checkbox" name="chk_lang" value="react"/>React.js</label>
+       <label class="form-check-label form-check-inline"><input type="checkbox" name="chk_lang" value="angular"/>Angular.js</label>
+     </div>   
+     <table class="table table-bordered">
+         <thead>
+              <tr>
+                 <th><input type="checkbox" id="chkall" onclick="checkAll();"/></th>
+                 <th>A</th>
+                 <th>B</th>
+                 <th>C</th>
+              </tr>
+         </thead>
+         <tbody>
+              <tr>
+               <td><input type="checkbox" name="chk"  value="0"/></td>
+               <td>data</td>
+               <td>data</td>
+               <td>data</td>
+              </tr>
+              <tr>
+               <td><input type="checkbox" name="chk"  value="1"/></td>
+               <td>data</td>
+               <td>data</td>
+               <td>data</td>
+              </tr>
+              <tr>
+               <td><input type="checkbox" name="chk"  value="2"/></td>
+               <td>data</td>
+               <td>data</td>
+               <td>data</td>
+              </tr>
+              <tr>
+               <td><input type="checkbox" name="chk"  value="3"/></td>
+               <td>data</td>
+               <td>data</td>
+               <td>data</td>
+              </tr>
+              <tr>
+               <td><input type="checkbox" name="chk"  value="4"/></td>
+               <td>data</td>
+               <td>data</td>
+               <td>data</td>
+              </tr>
+         </tbody>
+     </table>   
+   </div>
+   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+      function checkAll(){
+         let isChecked=document.getElementById("chkall").checked;
+         let chks=document.getElementsByName("chk");
+         for(let i=0;i<chks.length;i++){
+            chks[i].checked=isChecked;
+         }
+      }
+      function doSave(){
+         let chk_lang=document.getElementsByName("chk_lang");
+         let checked_lang_items=[];
+         for(let i=0;i<chk_lang.length;i++){
+            if(chk_lang[i].checked){
+               checked_lang_items.push(chk_lang[i].value);
+            }
+         }
+         console.log(checked_lang_items);
+
+
+         let chks=document.getElementsByName("chk");
+         let checked_items=[];
+         for(let i=0;i<chks.length;i++){
+            if(chks[i].checked){
+               checked_items.push(chks[i].value);
+            }
+         }
+         console.log(checked_items);
+
+      }
+   </script>
+</body>
+</html>
