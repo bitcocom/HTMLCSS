@@ -82,16 +82,16 @@
         const gender = document.querySelector("#gender").value;
         const name = document.querySelector("#name").value;
 
-        let resource = "http://localhost:3000/customers";
+        let resource = "/js/customers";
         if (gender === "") {
           if (name != "") {
-            resource = `http://localhost:3000/customers?name_like=${name}`;
+            resource = `/js/customers?name_like=${name}`;
           }
         } else {
           if (name !== "") {
-            resource = `http://localhost:3000/customers?gender=${gender}&name_like=${name}`;
+            resource = `/js/customers?gender=${gender}&name_like=${name}`;
           } else {
-            resource = `http://localhost:3000/customers?gender=${gender}`;
+            resource = `/js/customers?gender=${gender}`;
           }
         }
 
@@ -141,7 +141,7 @@
           }).then(async (result) => {
             if (result.isConfirmed) {
               for (const chk of chks) {
-                await fetch(`http://localhost:3000/customers/${chk.value}`, {
+                await fetch(`/js/customers/${chk.value}`, {
                   method: "DELETE",
                 });
               }
